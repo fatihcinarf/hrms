@@ -10,6 +10,8 @@ import kodlamaio.hrms.entities.concretes.User;
 public interface UserDao extends JpaRepository<User, Integer>{
 	
 	User getByTcNo(String tcNo);
+	
+	User getByUserId(int userId);
 
 	User getByUserEmail(String userEmail);
 	
@@ -18,6 +20,8 @@ public interface UserDao extends JpaRepository<User, Integer>{
 	List<User> getByTcNoOrUserEmail(String tcNo, String userEmail);
 	
 	DataResult<User> getByUserName(String userName);
+	
+	List<User> getByUserCv_UserCvIdIn(List<Integer> userCvId);
 	
 	//public User getByUserName(String userName);
 	

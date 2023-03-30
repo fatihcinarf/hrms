@@ -17,37 +17,22 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
+@Table(name="cities")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "employers")
-public class Employer {
-
+public class City {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "employer_id")
-	private int employerId;
-
-	@Column(name = "company_name")
-	private String companyName;
-
-	@Column(name = "employer_website")
-	private String website;
-
-	@Column(name = "employer_email")
-	private String employerEmail;
-
-	@Column(name = "employer_phone")
-	private String employerPhone;
-
-	@Column(name = "employer_password")
-	private String employerPassword;
-
-	@Column(name = "admin_approved")
-	private int adminApproved;
-
-	@OneToMany(mappedBy = "employer")
+	@Column(name =  "city_id")
+	private int cityId;
+	
+	@Column(name="city_name")
+	private String cityName;
+	
+	@OneToMany(mappedBy = "city")
 	@JsonIgnore
-	private List<JobPostingForm> jobPostingForms;
+	private List<JobPostingForm> jobPostingForms;	
 
 }

@@ -28,15 +28,18 @@ public class EmployerCheckManager implements EmployerCheckService {
 
 	@Override
 	public boolean isEmployerAnyEmpty(Employer employer) {
-
-		if (employer.getCompanyName().isEmpty() || employer.getEmployerEmail().isEmpty()
-		 || employer.getEmployerPassword().isEmpty() || employer.getEmployerRepeatPassword().isEmpty()
-		 || employer.getEmployerPhone().isEmpty() || employer.getWebsite().isEmpty()) {
-			
-			return false;
-		}else {
+		if (employer.getCompanyName().isEmpty() || employer.getEmployerEmail().isEmpty()||
+			employer.getEmployerPassword().isEmpty() || employer.getEmployerPhone().isEmpty()|| 
+			employer.getWebsite().isEmpty()) {
 			return true;
+		} else {
+			return false;
 		}
+	}
+
+	@Override
+	public boolean checkAdminApproved(Employer employer) {
+		return false;
 	}
 
 }
